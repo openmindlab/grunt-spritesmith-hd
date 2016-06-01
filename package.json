@@ -1,28 +1,34 @@
 {
   "name": "grunt-spritesmith-hd",
   "description": "Uses grunt-spritesmith along with some image-manipulation and SCSS-trickery to generate HD-compatible sprites and corresponding SCSS stylesheets.",
-  "version": "0.3.6",
-  "homepage": "https://github.com/davidclark/grunt-spritesmith-hd",
+  "version": "0.4.0",
+  "homepage": "https://github.com/openmindlab/grunt-spritesmith-hd",
   "author": {
     "name": "David Clark",
     "email": "david.dave.clark@gmail.com"
   },
+  "contributors": [
+    {
+      "name": "openmindlab",
+      "email": "info@openmindlab.com"
+    }
+  ],
   "repository": {
     "type": "git",
-    "url": "git://github.com/davidclark/grunt-spritesmith-hd.git"
+    "url": "git://github.com/openmindlab/grunt-spritesmith-hd.git"
   },
   "bugs": {
-    "url": "https://github.com/davidclark/grunt-spritesmith-hd/issues"
+    "url": "https://github.com/openmindlab/grunt-spritesmith-hd/issues"
   },
   "licenses": [
     {
       "type": "MIT",
-      "url": "https://github.com/davidclark/grunt-spritesmith-hd/blob/master/LICENSE-MIT"
+      "url": "https://github.com/openmindlab/grunt-spritesmith-hd/blob/master/LICENSE-MIT"
     }
   ],
   "main": "tasks/spritesmith-hd.js",
   "engines": {
-    "node": ">= 0.8.0"
+    "node": ">= 0.10.0"
   },
   "dependencies": {
     "gm": "^1.22.0",
@@ -35,7 +41,14 @@
     "grunt": "~1.0.1"
   },
   "keywords": [
-    "gruntplugin"
+    "grunt",
+    "gruntplugin",
+    "sprite",
+    "image",
+    "spritesheet",
+    "css",
+    "spritesmith",
+    "cross-platform"
   ],
   "devDependencies": {
     "grunt-sass": "~1.2.0",
