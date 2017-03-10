@@ -185,8 +185,10 @@ spriteHD: {
   home: {
     src: ["images/sprite-assets/home/*"],
     spriteName: "home",
-    cssOpts: {
-      functions: false
+    options: {
+      cssOpts: {
+        functions: false
+      }
     }
   }
 }
@@ -209,8 +211,10 @@ spriteHD: {
   home: {
     src: ["images/sprite-assets/home/*"],
     spriteName: "home",
-    cssOpts: {
-      functions: false
+    options: {
+      cssOpts: {
+        functions: false
+      }
     }
   }
 }

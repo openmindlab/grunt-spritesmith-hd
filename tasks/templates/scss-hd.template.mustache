@@ -6,18 +6,30 @@
 @import "{{{options.hdPath}}}";
 
 {{#items}}
-${{name}}-x: {{px.x}};
-${{name}}-y: {{px.y}};
-${{name}}-offset-x: {{px.offset_x}};
-${{name}}-offset-y: {{px.offset_y}};
-${{name}}-width: {{px.width}};
-${{name}}-height: {{px.height}};
-${{name}}-total-width: {{px.total_width}};
-${{name}}-total-height: {{px.total_height}};
-${{name}}-image: '{{{escaped_image}}}';
-${{name}}-hd: ${{../options.hdPrefix}}-{{name}};
-${{name}}: {{px.x}} {{px.y}} {{px.offset_x}} {{px.offset_y}} {{px.width}} {{px.height}} {{px.total_width}} {{px.total_height}} '{{{escaped_image}}}' ${{../options.hdPrefix}}-{{name}};
+${{../options.varPrefix}}{{name}}-x: {{px.x}};
+${{../options.varPrefix}}{{name}}-y: {{px.y}};
+${{../options.varPrefix}}{{name}}-offset-x: {{px.offset_x}};
+${{../options.varPrefix}}{{name}}-offset-y: {{px.offset_y}};
+${{../options.varPrefix}}{{name}}-width: {{px.width}};
+${{../options.varPrefix}}{{name}}-height: {{px.height}};
+${{../options.varPrefix}}{{name}}-total-width: {{px.total_width}};
+${{../options.varPrefix}}{{name}}-total-height: {{px.total_height}};
+${{../options.varPrefix}}{{name}}-image: '{{{escaped_image}}}';
+${{../options.varPrefix}}{{name}}-hd: ${{../options.varPrefix}}{{../options.hdPrefix}}-{{name}};
+${{../options.varPrefix}}{{name}}: {{px.x}} {{px.y}} {{px.offset_x}} {{px.offset_y}} {{px.width}} {{px.height}} {{px.total_width}} {{px.total_height}} '{{{escaped_image}}}' ${{../options.varPrefix}}{{../options.hdPrefix}}-{{name}};
 {{/items}}
+
+
+
+{{#options.createMap}}
+${{options.varPrefix}}sprite-map: (
+  {{#items}}
+    {{../options.varPrefix}}{{name}}: {{px.x}} {{px.y}} {{px.offset_x}} {{px.offset_y}} {{px.width}} {{px.height}} {{px.total_width}} {{px.total_height}} '{{{escaped_image}}}' ${{../options.varPrefix}}{{../options.hdPrefix}}-{{name}},
+  {{/items}}
+);
+{{/options.createMap}}
+
+
 
 {{#options.functions}}
 @mixin sprite-width($sprite) {

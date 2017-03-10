@@ -39,6 +39,7 @@ module.exports = function(grunt) {
       hd = options.hd !== false,
       hdPrefix = options.hdPrefix || 'hd',
       ldPrefix = options.ldPrefix || 'ld',
+      functions = options.functions || true,
       imgType = 'png';
 
     //test the optionally passed template paths to abort as early as possible
@@ -156,7 +157,7 @@ module.exports = function(grunt) {
 
     grunt.log.writeln('Creating temporary ' + hdPrefix + ' assets ...');
     _.forEach(srcFiles, function(file) {
-      var newName = hdPrefix + '-' + path.basename(file);
+      var newName = (typeof cssOpts.varPrefix != 'undefined' ? cssOpts.varPrefix : '') + hdPrefix + '-' + path.basename(file);
       grunt.file.copy(file, path.join(hdAssetDir, newName));
     });
 
@@ -244,7 +245,7 @@ module.exports = function(grunt) {
       ldSpritesmithParams.ld.cssOpts = _.extend(cssOpts, {
         'hdPath': hdStyleName,
         'hdPrefix': hdPrefix,
-        'spriteName': spriteName
+        'spriteName': spriteName,
       });
       _.extend(ldSpritesmithParams.ld, spritesmithParams);
 
