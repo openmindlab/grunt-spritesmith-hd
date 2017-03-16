@@ -151,9 +151,9 @@ Type: `Object`
 Default: `{}`
 
 Options to pass to the Mustache template that generates your stylesheets.
-  - `{ functions: false }`: which will make it so the generated SCSS includes variables only, not mixins. This is handy if you are using multiple sprites in a project and don't want to duplicate the mixin definitions.
-  - `{ functions: false }`:
-  - Magic
+  - `{ functions: false }`: the generated SCSS includes variables only, not mixins. This is handy if you are using multiple sprites in a project and don't want to duplicate the mixin definitions.
+  - `{ createMap: false }`: If true, will create a variabble map in the SCSS file
+  - `{ varPrefix: none }`: String value to set a prefix for the variables in the generated SCSS
 
 
 #### ldCssTemplate
@@ -189,7 +189,9 @@ spriteHD: {
     spriteName: "home",
     options: {
       cssOpts: {
-        functions: false
+        functions: false,
+        createMap: true,
+        varPrefix: 'icon-medium'
       }
     }
   }
