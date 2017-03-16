@@ -151,8 +151,10 @@ Type: `Object`
 Default: `{}`
 
 Options to pass to the Mustache template that generates your stylesheets.
+  - `{ functions: false }`: which will make it so the generated SCSS includes variables only, not mixins. This is handy if you are using multiple sprites in a project and don't want to duplicate the mixin definitions.
+  - `{ functions: false }`:
+  - Magic
 
-As of now, you have one real option, `{ functions: false }`, which will make it so the generated SCSS includes variables only, not mixins. This is handy if you are using multiple sprites in a project and don't want to duplicate the mixin definitions.
 
 #### ldCssTemplate
 Type: `String`
@@ -185,8 +187,10 @@ spriteHD: {
   home: {
     src: ["images/sprite-assets/home/*"],
     spriteName: "home",
-    cssOpts: {
-      functions: false
+    options: {
+      cssOpts: {
+        functions: false
+      }
     }
   }
 }
@@ -209,8 +213,10 @@ spriteHD: {
   home: {
     src: ["images/sprite-assets/home/*"],
     spriteName: "home",
-    cssOpts: {
-      functions: false
+    options: {
+      cssOpts: {
+        functions: false
+      }
     }
   }
 }
