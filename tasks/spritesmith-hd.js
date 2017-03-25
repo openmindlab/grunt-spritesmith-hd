@@ -124,7 +124,7 @@ module.exports = function(grunt) {
       };
       _.extend(regSpritesmithParams.reg, spritesmithParams);
 
-      var regConfig = _.extend(grunt.config.get(), {
+      var regConfig = _.extend(grunt.config.getRaw(), {
         'sprite': regSpritesmithParams
       });
       grunt.config.init(regConfig);
@@ -250,7 +250,7 @@ module.exports = function(grunt) {
       _.extend(ldSpritesmithParams.ld, spritesmithParams);
 
       var allParams = _.extend(hdSpritesmithParams, ldSpritesmithParams),
-        config = _.extend(grunt.config.get(), {
+        config = _.extend(grunt.config.getRaw(), {
           'sprite': allParams
         });
       grunt.config.init(config);
