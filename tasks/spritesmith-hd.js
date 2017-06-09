@@ -36,6 +36,7 @@ module.exports = function(grunt) {
       // Other
       resizeEngine = options.resizeEngine || 'gmsmith',
       assetFormats = options.assetFormats || ['.png', '.jpg', '.jpeg'],
+      tempAssets = options.tempAssetsFolder || 'tempAssets',
       hd = options.hd !== false,
       hdPrefix = options.hdPrefix || 'hd',
       ldPrefix = options.ldPrefix || 'ld',
@@ -60,7 +61,6 @@ module.exports = function(grunt) {
 
     // Derivations from the settings.
     var srcFiles = grunt.file.expand(src),
-      tempAssets = 'tempAssets',
 
       hdImageName = hdPrefix + '-' + spriteName + '.' + imgType,
       hdDestImg = path.join(destImg, hdImageName),
