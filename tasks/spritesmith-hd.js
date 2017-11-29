@@ -3,7 +3,8 @@ var gm = require('gm'),
   grunt = require('grunt'),
   gruntSpritesmith = require('grunt-spritesmith'),
   path = require('path'),
-  _ = require('lodash');
+  _ = require('lodash'),
+  sizeOf = require('image-size');
 
 module.exports = function(grunt) {
 
@@ -41,6 +42,7 @@ module.exports = function(grunt) {
       hdPrefix = options.hdPrefix || 'hd',
       ldPrefix = options.ldPrefix || 'ld',
       functions = options.functions || true,
+      failOnOddImageSize = options.failOnOddImageSize || false,
       imgType = 'png';
 
     //test the optionally passed template paths to abort as early as possible
@@ -157,6 +159,17 @@ module.exports = function(grunt) {
 
     grunt.log.writeln('Creating temporary ' + hdPrefix + ' assets ...');
     _.forEach(srcFiles, function(file) {
+        var dimensions = sizeOf(file);
+        if((dimensions.width % 2 !== 0) || (dimensions.height % 2 !== 0) )
+        {
+          var warningMessage = 'The file \''+file+'\' size is not correct. The image size is is: '+dimensions.width+'px width and '+dimensions.height+'px height.';
+          if(failOnOddImageSize)
+          {
+              grunt.fail.fatal(warningMessage);
+          }else{
+              grunt.log.error(warningMessage);
+          }
+        }
       var newName = (typeof cssOpts.varPrefix != 'undefined' ? cssOpts.varPrefix : '') + hdPrefix + '-' + path.basename(file);
       grunt.file.copy(file, path.join(hdAssetDir, newName));
     });

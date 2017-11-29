@@ -155,6 +155,16 @@ Options to pass to the Mustache template that generates your stylesheets.
   - `{ createMap: false }`: If true, will create a variabble map in the SCSS file
   - `{ varPrefix: none }`: String value to set a prefix for the variables in the generated SCSS
 
+#### failOnOddImageSize
+Type: `Boolean`
+Default: `false`
+
+Set it to `true` in order to interrupt the build process if any of the standard source images size (width or height) is not even.
+
+If it's set to `false` the build process just raise a warning.
+
+All the images should have an even height and an even width `(e.g. 22x26px)`
+
 
 #### ldCssTemplate
 Type: `String`
