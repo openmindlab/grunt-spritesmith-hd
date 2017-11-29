@@ -18,3 +18,5 @@ node_modules
 test/scss/sprites
 test/sprites
 test/test-style.css
+
+package-lock.json
