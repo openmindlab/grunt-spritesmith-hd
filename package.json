@@ -1,5 +1,5 @@
 {
-  "name": "@openmind/grunt-spritesmith-hd",
+  "name": "grunt-spritesmith-hd",
   "description": "Uses grunt-spritesmith along with some image-manipulation and SCSS-trickery to generate HD-compatible sprites and corresponding SCSS stylesheets.",
   "version": "0.4.6",
   "homepage": "https://github.com/openmindlab/grunt-spritesmith-hd",
